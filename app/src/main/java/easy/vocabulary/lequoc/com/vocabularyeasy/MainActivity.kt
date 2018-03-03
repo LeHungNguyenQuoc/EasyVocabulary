@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+                message.setText(R.string.title_input_data)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
