@@ -3,10 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Test" />
+
     <ScrollView
+        android:layout_below="@+id/btnTest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button">
+        android:layout_above="@+id/btnSubmit">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,7 +95,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
