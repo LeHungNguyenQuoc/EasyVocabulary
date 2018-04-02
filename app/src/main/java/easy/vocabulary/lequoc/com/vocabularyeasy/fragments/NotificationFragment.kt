@@ -12,7 +12,7 @@ import easy.vocabulary.lequoc.com.vocabularyeasy.R
  */
 class NotificationFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false).apply {
+        return inflater.inflate(R.layout.fragment_notification, container, false).apply {
             findViewById<TextView>(R.id.textViewTitle).setText(R.string.title_notifications)
         }
     }
