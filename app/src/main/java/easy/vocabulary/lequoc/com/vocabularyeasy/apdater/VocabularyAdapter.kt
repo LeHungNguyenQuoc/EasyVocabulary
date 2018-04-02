@@ -12,20 +12,20 @@ import kotlinx.android.synthetic.main.view_vocabulary_item.view.*
 /**
  * Created by quocle on 4/2/18.
  */
-class VocabularyAdapter(val context: Context) : RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
+class VocabularyAdapter(private val context: Context) : RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
 
-    private  var items: List<Vocabulary> = ArrayList()
+    private var items: List<Vocabulary>? = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.view_vocabulary_item, parent, false))
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return items?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.tvName?.text = items[position].engMeaning
+        holder?.tvName?.text = items?.get(position)?.engMeaning
     }
 
     fun setData(data: List<Vocabulary>) {

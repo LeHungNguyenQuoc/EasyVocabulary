@@ -41,6 +41,7 @@ dependencies {
     // RxJava
     implementation deps.rx_android
     implementation deps.rxjava2
+    implementation deps.rx_kotlin
 
     // kotlin
     // Kotlin

@@ -47,16 +47,6 @@ class InputFragment : BaseFragment() {
             saveInput(vocabulary)
         }
 
-        btnTest.setOnClickListener {
-            val task = Runnable {
-                val data = mVocabularyDatabase?.vocabularyDao()?.getAll()
-                mUiHandler.post({
-                    Log.d("QDB", "data .size  = ${ data?.size}")
-                })
-            }
-            mDbWorkerThread.postTask(task)
-        }
-
     }
     private fun saveInput(vocabulary: Vocabulary) {
         val task = Runnable { mVocabularyDatabase?.vocabularyDao()?.insert(vocabulary) }
