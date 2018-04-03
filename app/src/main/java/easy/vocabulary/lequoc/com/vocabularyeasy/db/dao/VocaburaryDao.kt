@@ -5,6 +5,7 @@ import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import easy.vocabulary.lequoc.com.vocabularyeasy.entity.Vocabulary
+import io.reactivex.Flowable
 
 /**
  * Created by quocle on 3/30/18.
@@ -15,5 +16,8 @@ interface VocabularyDao {
     fun insert(vocabulary: Vocabulary)
 
     @Query("SELECT * FROM Vocabularies")
-    fun getAll(): List<Vocabulary>
+    fun getAll(): Flowable<List<Vocabulary>>
+
+    @Query("DELETE FROM Vocabularies")
+    fun deleteAllUsers()
 }

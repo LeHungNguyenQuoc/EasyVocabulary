@@ -3,4 +3,5 @@
     <string name="title_home">Home</string>
     <string name="title_input_data">Input Data</string>
     <string name="title_notifications">Notifications</string>
+    <string name="clear_all">Clear All Vocabulary</string>
 </resources>

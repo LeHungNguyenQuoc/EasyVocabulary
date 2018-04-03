@@ -10,8 +10,9 @@ import android.widget.TextView
 import easy.vocabulary.lequoc.com.vocabularyeasy.R
 import easy.vocabulary.lequoc.com.vocabularyeasy.apdater.VocabularyAdapter
 import easy.vocabulary.lequoc.com.vocabularyeasy.db.database.VocabularyDatabase
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : BaseFragment() {
 
     private lateinit var adapter: VocabularyAdapter
+    private val disposable = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false).apply {
@@ -45,19 +47,17 @@ class HomeFragment : BaseFragment() {
     private lateinit var mVocabularyDatabase: VocabularyDatabase
 
     private fun loadDataFromLocal() {
-        Single.fromCallable {
-                    mVocabularyDatabase.vocabularyDao().getAll()
-                }
+        mVocabularyDatabase.vocabularyDao().getAll()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy (
-                        onSuccess = {
+                        onNext = {
                             adapter.setData(data = it)
                         },
                         onError = {
                             Log.e(javaClass.simpleName, "Error when load local data!")
                         }
-                )
+                ).addTo(disposable)
     }
 
     companion object Factory {

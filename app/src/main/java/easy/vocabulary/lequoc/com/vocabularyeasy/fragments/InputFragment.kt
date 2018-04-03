@@ -1,7 +1,6 @@
 package easy.vocabulary.lequoc.com.vocabularyeasy.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import easy.vocabulary.lequoc.com.vocabularyeasy.db.database.VocabularyDatabase
 import easy.vocabulary.lequoc.com.vocabularyeasy.entity.Vocabulary
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_input_data.*
 
